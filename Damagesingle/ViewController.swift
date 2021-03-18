@@ -7,9 +7,15 @@
 
 import UIKit
 
+class DamageTableCell: UITableViewCell {
+    @IBOutlet private weak var PokemonNumLabel: UILabel!
+    @IBOutlet private weak var PokemonDamageLabel: UILabel!
+    @IBOutlet private weak var PokemonDamageStepper: UIStepper!
+}
 
 class ViewController: UIViewController {
     @IBOutlet private weak var tableView: UITableView!
+    
     
     private var damages: [Int] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     private let sections: [String] = ["バトルポケモン","ベンチポケモン"]
