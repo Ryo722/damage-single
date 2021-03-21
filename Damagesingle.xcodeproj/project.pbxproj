@@ -15,6 +15,8 @@
 		1A8D468325FB19BF00021681 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 1A8D468125FB19BF00021681 /* LaunchScreen.storyboard */; };
 		1A8D468E25FB19C000021681 /* DamagesingleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D468D25FB19C000021681 /* DamagesingleTests.swift */; };
 		1A8D469925FB19C000021681 /* DamagesingleUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A8D469825FB19C000021681 /* DamagesingleUITests.swift */; };
+		33F2E78226059446009486A0 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F2E78126059446009486A0 /* Pokemon.swift */; };
+		33F2E78726059F46009486A0 /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 33F2E78626059F46009486A0 /* PokemonTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +51,8 @@
 		1A8D469425FB19C000021681 /* DamagesingleUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DamagesingleUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		1A8D469825FB19C000021681 /* DamagesingleUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DamagesingleUITests.swift; sourceTree = "<group>"; };
 		1A8D469A25FB19C000021681 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		33F2E78126059446009486A0 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = SOURCE_ROOT; };
+		33F2E78626059F46009486A0 /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +83,7 @@
 		1A8D466A25FB19BC00021681 = {
 			isa = PBXGroup;
 			children = (
+				33F2E78626059F46009486A0 /* PokemonTableViewCell.swift */,
 				1A8D467525FB19BC00021681 /* Damagesingle */,
 				1A8D468C25FB19C000021681 /* DamagesingleTests */,
 				1A8D469725FB19C000021681 /* DamagesingleUITests */,
@@ -99,6 +104,7 @@
 		1A8D467525FB19BC00021681 /* Damagesingle */ = {
 			isa = PBXGroup;
 			children = (
+				33F2E78126059446009486A0 /* Pokemon.swift */,
 				1A8D467625FB19BC00021681 /* AppDelegate.swift */,
 				1A8D467825FB19BC00021681 /* SceneDelegate.swift */,
 				1A8D467A25FB19BC00021681 /* ViewController.swift */,
@@ -259,7 +265,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				1A8D467B25FB19BC00021681 /* ViewController.swift in Sources */,
+				33F2E78226059446009486A0 /* Pokemon.swift in Sources */,
 				1A8D467725FB19BC00021681 /* AppDelegate.swift in Sources */,
+				33F2E78726059F46009486A0 /* PokemonTableViewCell.swift in Sources */,
 				1A8D467925FB19BC00021681 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

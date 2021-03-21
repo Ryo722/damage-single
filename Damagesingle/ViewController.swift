@@ -7,17 +7,12 @@
 
 import UIKit
 
-class DamageTableCell: UITableViewCell {
-    @IBOutlet private weak var PokemonNumLabel: UILabel!
-    @IBOutlet private weak var PokemonDamageLabel: UILabel!
-    @IBOutlet private weak var PokemonDamageStepper: UIStepper!
-}
 
 class ViewController: UIViewController {
+    var battlepokemon: [Pokemon] = []
+    var benchpokemons: [Pokemon] = []
+    
     @IBOutlet private weak var tableView: UITableView!
-    
-    
-    private var damages: [Int] = [0, 0, 0, 0, 0, 0, 0, 0, 0]
     private let sections: [String] = ["バトルポケモン","ベンチポケモン"]
     
     override func viewDidLoad() {
@@ -26,6 +21,19 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         tableView.isEditing = true
+        loadData()
+    }
+    
+    func loadData() {
+        battlepokemon.append(Pokemon(PokemonNumLabel: 1, PokemonDamageLabel: 0))
+        benchpokemons.append(Pokemon(PokemonNumLabel: 2, PokemonDamageLabel: 0))
+        benchpokemons.append(Pokemon(PokemonNumLabel: 3, PokemonDamageLabel: 0))
+        benchpokemons.append(Pokemon(PokemonNumLabel: 4, PokemonDamageLabel: 0))
+        benchpokemons.append(Pokemon(PokemonNumLabel: 5, PokemonDamageLabel: 0))
+        benchpokemons.append(Pokemon(PokemonNumLabel: 6, PokemonDamageLabel: 0))
+        benchpokemons.append(Pokemon(PokemonNumLabel: 7, PokemonDamageLabel: 0))
+        benchpokemons.append(Pokemon(PokemonNumLabel: 8, PokemonDamageLabel: 0))
+        benchpokemons.append(Pokemon(PokemonNumLabel: 9, PokemonDamageLabel: 0))
     }
 }
 
@@ -37,7 +45,7 @@ extension ViewController: UITableViewDataSource {
             return 1
         }
         else if section == 1 {
-            return damages.count - 1
+            return benchpokemons.count
         }
         else {
             return 0
@@ -45,11 +53,22 @@ extension ViewController: UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "Damagecell") ??
-                    UITableViewCell(style: .default, reuseIdentifier: "cell")
-        cell.textLabel?.text = String(damages[indexPath.row])
-        //cell.countStepper.value = damages[indexPath.row].value
-        return cell
+        if indexPath.section == 0 {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonTableViewCell", for: indexPath) as? PokemonTableViewCell else {
+                    fatalError("Dequeue failed: PokemonTableCell.")
+                }
+            cell.PokemonNumLabel.text = String(format: "ポケモン%d : ", battlepokemon[indexPath.row].PokemonNumLabel)
+            cell.PokemonDamageLabel.text = String(battlepokemon[indexPath.row].PokemonDamageLabel)
+            return cell
+        }
+        else {
+            guard let cell = tableView.dequeueReusableCell(withIdentifier: "PokemonTableViewCell", for: indexPath) as? PokemonTableViewCell else {
+                    fatalError("Dequeue failed: PokemonTableCell.")
+                }
+            cell.PokemonNumLabel.text = String(format: "ポケモン%d : ", benchpokemons[indexPath.row].PokemonNumLabel)
+            cell.PokemonDamageLabel.text = String(benchpokemons[indexPath.row].PokemonDamageLabel)
+            return cell
+        }
     }
 
     //セクションの数
@@ -63,25 +82,49 @@ extension ViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
-        damages.remove(at: indexPath.row)
+        if indexPath.section == 0 {
+            battlepokemon.remove(at: indexPath.row)
+        }
+        else {
+            benchpokemons.remove(at: indexPath.row)
+        }
         tableView.deleteRows(at: [indexPath], with: UITableView.RowAnimation.automatic)
     }
 
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        let damage = damages[sourceIndexPath.row]
-        damages.remove(at: sourceIndexPath.row)
-        damages.insert(damage, at: destinationIndexPath.row)
+        if sourceIndexPath.section == 0 && destinationIndexPath.section == 1{
+            battlepokemon.remove(at: sourceIndexPath.row)
+            benchpokemons.insert(contentsOf: battlepokemon, at: destinationIndexPath.row)
+        }
+        else if sourceIndexPath.section == 1 && destinationIndexPath.section == 0 {
+            benchpokemons.remove(at: sourceIndexPath.row)
+            battlepokemon.insert(contentsOf: benchpokemons, at: destinationIndexPath.row)
+        }
+        else if sourceIndexPath.section == 1 && destinationIndexPath.section == 1 {
+            benchpokemons.remove(at: sourceIndexPath.row)
+            benchpokemons.insert(contentsOf: benchpokemons, at: destinationIndexPath.row)
+        }
+        
+        //let pokemon = pokemons[sourceIndexPath.row]
+        
     }
 }
 
 extension ViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        
-        let damage = damages[indexPath.row]
-        let alert = UIAlertController(title: "タイトル", message: String(damage), preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-        present(alert, animated: true, completion: nil)
+        if indexPath.section == 0 {
+            let pokemon = battlepokemon[indexPath.row]
+            let alert = UIAlertController(title: "タイトル", message: String(pokemon.PokemonDamageLabel), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
+        else {
+            let pokemon = benchpokemons[indexPath.row]
+            let alert = UIAlertController(title: "タイトル", message: String(pokemon.PokemonDamageLabel), preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            present(alert, animated: true, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, editingStyleForRowAt indexPath: IndexPath) -> UITableViewCell.EditingStyle {
