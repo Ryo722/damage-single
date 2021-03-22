@@ -11,12 +11,21 @@ import UIKit
 class ViewController: UIViewController {
     var battlepokemon: [Pokemon] = []
     var benchpokemons: [Pokemon] = []
+    private let sections: [String] = ["バトルポケモン","ベンチポケモン"]
+    private var coin = "表"
+    
+    var CoinBarButtonItem: UIBarButtonItem!
+    var ConditionBarButtonItem: UIBarButtonItem!
     
     @IBOutlet private weak var tableView: UITableView!
-    private let sections: [String] = ["バトルポケモン","ベンチポケモン"]
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        ConditionBarButtonItem = UIBarButtonItem(title: "状態異常", style: .done, target: self, action: #selector(self.ConditionBarButtonTapped))
+        CoinBarButtonItem = UIBarButtonItem(title: "コイントス", style: .done, target: self, action: #selector(self.CoinBarButtonTapped))
+        self.navigationItem.rightBarButtonItems = [ConditionBarButtonItem, CoinBarButtonItem]
+        
         tableView.dataSource = self
         tableView.delegate = self
         tableView.tableFooterView = UIView()
@@ -34,6 +43,24 @@ class ViewController: UIViewController {
         benchpokemons.append(Pokemon(PokemonNumLabel: 7, PokemonDamageLabel: 0))
         benchpokemons.append(Pokemon(PokemonNumLabel: 8, PokemonDamageLabel: 0))
         benchpokemons.append(Pokemon(PokemonNumLabel: 9, PokemonDamageLabel: 0))
+    }
+    
+    @objc func ConditionBarButtonTapped(_sender: UIBarButtonItem) {
+        print("状態異常")
+    }
+    
+    @objc func CoinBarButtonTapped(_sender: UIBarButtonItem) {
+        let randomBool = Bool.random()
+        if randomBool {
+            coin = "表"
+        }
+        else{
+            coin = "裏"
+        }
+        print(coin)
+        let alert = UIAlertController(title: "コイントス結果", message: coin, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+        present(alert, animated: true, completion: nil)
     }
 }
 
