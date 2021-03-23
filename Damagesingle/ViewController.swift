@@ -14,17 +14,18 @@ class ViewController: UIViewController {
     private let sections: [String] = ["バトルポケモン","ベンチポケモン"]
     private var coin = "表"
     
+    
     var CoinBarButtonItem: UIBarButtonItem!
     var ConditionBarButtonItem: UIBarButtonItem!
     
+    @IBOutlet weak var ConditionCollectionView: UICollectionView!
     @IBOutlet private weak var tableView: UITableView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        ConditionBarButtonItem = UIBarButtonItem(title: "状態異常", style: .done, target: self, action: #selector(self.ConditionBarButtonTapped))
         CoinBarButtonItem = UIBarButtonItem(title: "コイントス", style: .done, target: self, action: #selector(self.CoinBarButtonTapped))
-        self.navigationItem.rightBarButtonItems = [ConditionBarButtonItem, CoinBarButtonItem]
+        self.navigationItem.rightBarButtonItems = [CoinBarButtonItem]
         
         tableView.dataSource = self
         tableView.delegate = self
@@ -44,11 +45,8 @@ class ViewController: UIViewController {
         benchpokemons.append(Pokemon(PokemonNumLabel: 8, PokemonDamageLabel: 0))
         benchpokemons.append(Pokemon(PokemonNumLabel: 9, PokemonDamageLabel: 0))
     }
-    
-    @objc func ConditionBarButtonTapped(_sender: UIBarButtonItem) {
-        print("状態異常")
-    }
-    
+
+
     @objc func CoinBarButtonTapped(_sender: UIBarButtonItem) {
         let randomBool = Bool.random()
         if randomBool {
@@ -57,7 +55,7 @@ class ViewController: UIViewController {
         else{
             coin = "裏"
         }
-        print(coin)
+        //print(coin)
         let alert = UIAlertController(title: "コイントス結果", message: coin, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
         present(alert, animated: true, completion: nil)
@@ -131,9 +129,6 @@ extension ViewController: UITableViewDataSource {
             benchpokemons.remove(at: sourceIndexPath.row)
             benchpokemons.insert(contentsOf: benchpokemons, at: destinationIndexPath.row)
         }
-        
-        //let pokemon = pokemons[sourceIndexPath.row]
-        
     }
 }
 
