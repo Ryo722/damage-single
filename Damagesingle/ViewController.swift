@@ -18,6 +18,13 @@ class ViewController: UIViewController {
     var CoinBarButtonItem: UIBarButtonItem!
     var ConditionBarButtonItem: UIBarButtonItem!
     
+    @IBOutlet weak var ToxicButton: UIButton!
+    @IBOutlet weak var BurnButton: UIButton!
+    @IBOutlet weak var ParalysisButton: UIButton!
+    @IBOutlet weak var SleepButton: UIButton!
+    @IBOutlet weak var AnarchyButton: UIButton!
+    @IBOutlet weak var SupportButton: UIButton!
+    
     @IBOutlet weak var ConditionCollectionView: UICollectionView!
     @IBOutlet private weak var tableView: UITableView!
 

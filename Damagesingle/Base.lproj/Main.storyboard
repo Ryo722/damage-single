@@ -90,10 +90,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2t9-si-7KU">
-                                                    <rect key="frame" x="30" y="44" width="69" height="41"/>
+                                                    <rect key="frame" x="41" y="44" width="49" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="どく"/>
                                                 </button>
                                             </subviews>
                                         </collectionViewCellContentView>
@@ -106,10 +106,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Lg-dK-4mN">
-                                                    <rect key="frame" x="30" y="44" width="69" height="41"/>
+                                                    <rect key="frame" x="28" y="44" width="73" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="やけど"/>
                                                 </button>
                                             </subviews>
                                         </collectionViewCellContentView>
@@ -122,10 +122,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PjP-oA-bxr">
-                                                    <rect key="frame" x="30" y="44" width="69" height="41"/>
+                                                    <rect key="frame" x="40" y="44" width="49" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="まひ"/>
                                                 </button>
                                             </subviews>
                                         </collectionViewCellContentView>
@@ -138,10 +138,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pnO-xT-bH6">
-                                                    <rect key="frame" x="30" y="44" width="69" height="41"/>
+                                                    <rect key="frame" x="28" y="44" width="73" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="ねむり"/>
                                                 </button>
                                             </subviews>
                                         </collectionViewCellContentView>
@@ -154,10 +154,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HyQ-kc-KTm">
-                                                    <rect key="frame" x="30" y="44" width="69" height="41"/>
+                                                    <rect key="frame" x="16" y="44" width="98" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="こんらん"/>
                                                 </button>
                                             </subviews>
                                         </collectionViewCellContentView>
@@ -170,10 +170,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="blS-UH-3IP">
-                                                    <rect key="frame" x="30" y="44" width="69" height="41"/>
+                                                    <rect key="frame" x="16" y="44" width="98" height="41"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="24"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" title="サポート"/>
                                                 </button>
                                             </subviews>
                                         </collectionViewCellContentView>
@@ -192,7 +192,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="umE-6B-BDn"/>
                     <connections>
+                        <outlet property="AnarchyButton" destination="HyQ-kc-KTm" id="Hju-ZT-Ouu"/>
+                        <outlet property="BurnButton" destination="6Lg-dK-4mN" id="XzF-3D-Ivp"/>
                         <outlet property="ConditionCollectionView" destination="bUk-wR-JUX" id="Da1-l0-M83"/>
+                        <outlet property="ParalysisButton" destination="PjP-oA-bxr" id="G9h-7H-SKA"/>
+                        <outlet property="SleepButton" destination="pnO-xT-bH6" id="3UT-Ly-Ujg"/>
+                        <outlet property="SupportButton" destination="blS-UH-3IP" id="Cwk-Pf-ko2"/>
+                        <outlet property="ToxicButton" destination="2t9-si-7KU" id="SW5-2w-gcX"/>
                         <outlet property="tableView" destination="3aJ-UL-FJp" id="hyC-xq-ML7"/>
                     </connections>
                 </viewController>
