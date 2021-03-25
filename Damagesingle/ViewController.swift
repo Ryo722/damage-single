@@ -11,14 +11,12 @@ import UIKit
 class ViewController: UIViewController {
     var battlepokemon: [Pokemon] = []
     var benchpokemons: [Pokemon] = []
+    var condition: [Condition] = []
     private let sections: [String] = ["バトルポケモン","ベンチポケモン"]
+    var conditionsection = ["状態異常"]
     private var coin = "表"
     
-    
     var CoinBarButtonItem: UIBarButtonItem!
-    var ConditionBarButtonItem: UIBarButtonItem!
-    
-
     
     @IBOutlet weak var ConditionCollectionView: UICollectionView!
     @IBOutlet private weak var tableView: UITableView!
@@ -33,7 +31,13 @@ class ViewController: UIViewController {
         tableView.delegate = self
         tableView.tableFooterView = UIView()
         tableView.isEditing = true
+        
+        ConditionCollectionView.dataSource = self
+        ConditionCollectionView.delegate = self
+        
         loadData()
+        loadData2()
+        
     }
     
     func loadData() {
@@ -46,6 +50,15 @@ class ViewController: UIViewController {
         benchpokemons.append(Pokemon(PokemonNumLabel: 7, PokemonDamageLabel: 0))
         benchpokemons.append(Pokemon(PokemonNumLabel: 8, PokemonDamageLabel: 0))
         benchpokemons.append(Pokemon(PokemonNumLabel: 9, PokemonDamageLabel: 0))
+    }
+    
+    func loadData2() {
+        condition.append(Condition(ConditionName: "どく", CellColor: "紫"))
+        condition.append(Condition(ConditionName: "やけど", CellColor: "あか"))
+        condition.append(Condition(ConditionName: "ねむり", CellColor: "灰色"))
+        condition.append(Condition(ConditionName: "まひ", CellColor: "黄色"))
+        condition.append(Condition(ConditionName: "こんらん", CellColor: "うす黄色"))
+        condition.append(Condition(ConditionName: "サポート", CellColor: "しろ"))
     }
 
 
@@ -160,4 +173,23 @@ extension ViewController: UITableViewDelegate {
     }
 }
 
+extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return condition.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+            return CGSize(width: 128, height: 128)
+        }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let conditioncell = collectionView.dequeueReusableCell(withReuseIdentifier: "ConditionCollectionViewCell", for: indexPath) as? ConditionCollectionViewCell else {
+                fatalError("Dequeue failed: ConditionViewCell.")
+            }
+        conditioncell.ConditionButton.titleLabel?.text = String(format: "%@ ", condition[indexPath.row].ConditionName)
+        
+        //cell.ConditionName = String(format: "%@ ", condition[indexPath.row].ConditionName)
+        return conditioncell
+    }
+}
 

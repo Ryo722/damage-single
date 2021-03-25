@@ -12,10 +12,7 @@ class ConditionCollectionViewCell: UICollectionViewCell {
     public var ConditionName: String!
     public var CellColor: String!
     
-    
-    /*
-    func SetCellColor(CellColor: String) {
-        
+    override func awakeFromNib() {
+            super.awakeFromNib()
     }
- */
 }

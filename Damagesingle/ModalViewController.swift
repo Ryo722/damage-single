@@ -28,11 +28,11 @@ class ModalViewController: UIViewController {
     }
     
     func loadData() {
-        condition.append(Condition(ConditionLabel: "どく"))
-        condition.append(Condition(ConditionLabel: "やけど"))
-        condition.append(Condition(ConditionLabel: "ねむり"))
-        condition.append(Condition(ConditionLabel: "まひ"))
-        condition.append(Condition(ConditionLabel: "こんらん"))
+        condition.append(Condition(ConditionName: "どく", CellColor: "紫"))
+        condition.append(Condition(ConditionName: "やけど", CellColor: "あか"))
+        condition.append(Condition(ConditionName: "ねむり", CellColor: "灰色"))
+        condition.append(Condition(ConditionName: "まひ", CellColor: "黄色"))
+        condition.append(Condition(ConditionName: "こんらん", CellColor: "うす黄色"))
     }
 
 }
@@ -49,7 +49,7 @@ extension ModalViewController: UITableViewDataSource {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "ConditionTableViewCell", for: indexPath) as? ConditionTableViewCell else {
                 fatalError("Dequeue failed: ConditionnTableCell.")
             }
-        cell.ConditionLabel.text = String(format: "%@ ", condition[indexPath.row].ConditionLabel)
+        cell.ConditionLabel.text = String(format: "%@ ", condition[indexPath.row].ConditionName)
         return cell
     }
     
