@@ -8,9 +8,11 @@
 import Foundation
 
 struct Condition {
-    private(set) public var ConditionLabel: String
+    private(set) public var ConditionName: String
+    private(set) public var CellColor: String
     
-    init(ConditionLabel: String){
-        self.ConditionLabel = ConditionLabel
+    init(ConditionName: String, CellColor: String){
+        self.ConditionName = ConditionName
+        self.CellColor = CellColor
     }
 }
