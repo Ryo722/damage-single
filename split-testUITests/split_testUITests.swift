@@ -1,13 +1,13 @@
 //
-//  DamagesingleUITests.swift
-//  DamagesingleUITests
+//  split_testUITests.swift
+//  split-testUITests
 //
-//  Created by Ryo Hanazaki on 2021/03/12.
+//  Created by 花崎諒 on 2021/03/01.
 //
 
 import XCTest
 
-class DamagesingleUITests: XCTestCase {
+class split_testUITests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

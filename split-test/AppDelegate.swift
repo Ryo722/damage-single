@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Damagesingle
+//  split-test
 //
-//  Created by Ryo Hanazaki on 2021/03/12.
+//  Created by 花崎諒 on 2021/03/01.
 //
 
 import UIKit

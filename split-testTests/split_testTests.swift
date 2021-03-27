@@ -1,14 +1,14 @@
 //
-//  DamagesingleTests.swift
-//  DamagesingleTests
+//  split_testTests.swift
+//  split-testTests
 //
-//  Created by Ryo Hanazaki on 2021/03/12.
+//  Created by 花崎諒 on 2021/03/01.
 //
 
 import XCTest
-@testable import Damagesingle
+@testable import split_test
 
-class DamagesingleTests: XCTestCase {
+class split_testTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
