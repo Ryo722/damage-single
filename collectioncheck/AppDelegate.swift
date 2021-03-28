@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  split-test
+//  collectioncheck
 //
-//  Created by 花崎諒 on 2021/03/01.
+//  Created by 花崎諒 on 2021/03/26.
 //
 
 import UIKit

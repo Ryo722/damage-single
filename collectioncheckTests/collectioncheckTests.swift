@@ -1,14 +1,14 @@
 //
-//  split_testTests.swift
-//  split-testTests
+//  collectioncheckTests.swift
+//  collectioncheckTests
 //
-//  Created by 花崎諒 on 2021/03/01.
+//  Created by 花崎諒 on 2021/03/26.
 //
 
 import XCTest
-@testable import split_test
+@testable import collectioncheck
 
-class split_testTests: XCTestCase {
+class collectioncheckTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
